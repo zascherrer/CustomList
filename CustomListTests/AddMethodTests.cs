@@ -118,7 +118,7 @@ namespace CustomListTests
             myList.Add(value);
 
             //Assert
-            Assert.AreEqual(myList.Count(), 1);
+            Assert.AreEqual(myList.Count, 1);
         }
     }
 }

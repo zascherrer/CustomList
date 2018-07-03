@@ -10,7 +10,7 @@ namespace CustomList
     {
         T[] array;
         T[] nextArray;
-        int numberOfSlots;
+        public int Count { get; set; }
 
         public T this[int i]
         {
@@ -20,7 +20,7 @@ namespace CustomList
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                else if (i >= numberOfSlots)
+                else if (i >= Count)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -35,7 +35,7 @@ namespace CustomList
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                else if (i >= numberOfSlots)
+                else if (i >= Count)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -48,26 +48,22 @@ namespace CustomList
 
         public CustomList()
         {
-            numberOfSlots = 0;
-            array = new T[numberOfSlots];
-            nextArray = new T[numberOfSlots];
+            Count = 0;
+            array = new T[Count];
+            nextArray = new T[Count];
         }
 
         public void Add(T item)
         {
-            numberOfSlots++;
-            nextArray = new T[numberOfSlots];
-            for(int i = 0; i < numberOfSlots - 1; i++)
+            Count++;
+            nextArray = new T[Count];
+            for(int i = 0; i < Count - 1; i++)
             {
                 nextArray[i] = array[i];
             }
-            nextArray[numberOfSlots - 1] = item;
+            nextArray[Count - 1] = item;
             array = nextArray;
         }
-
-        public int Count()
-        {
-            return numberOfSlots;
-        }
+        
     }
 }

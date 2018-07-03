@@ -15,7 +15,7 @@ namespace CustomListTests
             int value = 40;
 
             //Act
-            myList.Add(40);
+            myList.Add(value);
 
             //Assert
             Assert.AreEqual(value, myList[0]);
@@ -30,8 +30,8 @@ namespace CustomListTests
             int value = 40;
 
             //Act
-            myList.Add(40);
-            myList[1];
+            myList.Add(value);
+            myList[1] = 0;
 
             //Assert
         }
@@ -45,8 +45,8 @@ namespace CustomListTests
             int value = 40;
 
             //Act
-            myList.Add(40);
-            myList[-1];
+            myList.Add(value);
+            myList[-1] = 0;
 
             //Assert
         }
@@ -114,7 +114,7 @@ namespace CustomListTests
             int value = 40;
 
             //Act
-            myList.Add(40);
+            myList.Add(value);
 
             //Assert
             Assert.AreEqual(myList.Count, 1);

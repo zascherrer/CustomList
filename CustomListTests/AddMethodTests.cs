@@ -93,7 +93,7 @@ namespace CustomListTests
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
-            int[] values = new int[10];
+            int[] values = new int[11];
 
             //Act
             for (int i = 0; i < 10; i++)
@@ -101,9 +101,10 @@ namespace CustomListTests
                 values[i] = i;
                 myList.Add(values[i]);
             }
+            myList[10] = 0;
 
             //Assert
-            Assert.AreEqual(values[9], myList[9]);
+            
         }
 
         [TestMethod]
@@ -117,7 +118,7 @@ namespace CustomListTests
             myList.Add(value);
 
             //Assert
-            Assert.AreEqual(myList.Count, 1);
+            Assert.AreEqual(myList.Count(), 1);
         }
     }
 }

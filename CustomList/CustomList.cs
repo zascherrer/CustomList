@@ -14,14 +14,28 @@ namespace CustomList
 
         public T this[int i]
         {
-            get { return array[i]; }
+            get
+            {
+                if (i < 0)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                else if (i >= numberOfSlots)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                else
+                {
+                    return array[i];
+                }
+            }
             set
             {
                 if (i < 0)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                else if (i > numberOfSlots)
+                else if (i >= numberOfSlots)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -51,5 +65,9 @@ namespace CustomList
             array = nextArray;
         }
 
+        public int Count()
+        {
+            return numberOfSlots;
+        }
     }
 }

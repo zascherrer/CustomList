@@ -65,5 +65,65 @@ namespace CustomList
             array = nextArray;
         }
         
+        public void Remove(T item)
+        {
+            bool hasBeenRemoved = false;
+            bool indexHasBeenPassed = false;
+            
+            nextArray = new T[Count];
+            for(int i = 0; i < Count; i++)
+            {
+                if (hasBeenRemoved)
+                {
+                    nextArray[i] = array[i];
+                }
+                else
+                {
+                    if(array[i].ToString() == item.ToString())
+                    {
+                        hasBeenRemoved = true;
+                    }
+                    else
+                    {
+                        nextArray[i] = array[i];
+                    }
+                }
+            }
+            if (hasBeenRemoved)
+            {
+                Count--;
+
+                if (Count < 0)
+                {
+                    Count = 0;
+                }
+                array = new T[Count];
+
+                for (int i = 0; i < Count + 1; i++)
+                {
+                    if (nextArray[i] != null && nextArray[i].ToString() != "0")
+                    {
+                        if (!indexHasBeenPassed)
+                        {
+                            array[i] = nextArray[i];
+                        }
+                        else
+                        {
+                            array[i - 1] = nextArray[i];
+                        }
+                    }
+                    else
+                    {
+                        indexHasBeenPassed = true;
+                    }
+                }
+            }
+            else
+            {
+                array = nextArray;
+            }
+        }
+
+
     }
 }

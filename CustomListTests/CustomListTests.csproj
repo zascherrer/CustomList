@@ -54,6 +54,7 @@
     <Compile Include="IteratorTests.cs" />
     <Compile Include="ToStringTests.cs" />
     <Compile Include="PlusOperatorOverloadTests.cs" />
+    <Compile Include="SubtractOperatorOverloadTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

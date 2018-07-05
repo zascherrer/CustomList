@@ -163,5 +163,16 @@ namespace CustomList
             }
             return sum;
         }
+
+        public static CustomList<T> operator -(CustomList<T> first, CustomList<T> second)
+        {
+            CustomList<T> result = new CustomList<T>();
+            result = first;
+            foreach (T item in second)
+            {
+                result.Remove(item);
+            }
+            return result;
+        }
     }
 }

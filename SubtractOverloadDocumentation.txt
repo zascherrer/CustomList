@@ -1,0 +1,24 @@
+CustomList<T> - CustomList<T>
+
+Removes the first instance of each object in the second list, if present, from the first list.
+
+
+Syntax
+
+public static CustomList<T> operator -(
+	CustomList<T> first
+	CustomList<T> second
+)
+
+
+Parameters
+
+first
+	The base CustomList<T> that will have objects removed from it.
+second
+	The secondary CustomList<T> that determines what will be removed from the first CustomList<T>.
+
+
+Return Type
+Type: CustomList.CustomList<T>
+Returns a CustomList<T> with the objects that were not removed.

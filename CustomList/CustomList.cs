@@ -249,17 +249,32 @@ namespace CustomList
         public void Sort()
         {
             //This method uses Insertion Sort
-            int i;
-            int j;
+            int characterIndex = 0;
+            InsertionSort(characterIndex);
+            
 
-            for (j = 1; j < Count; j++)
+        }
+
+        private void InsertionSort(int characterIndex)
+        {
+            for (int j = 1; j < Count; j++)
             {
-                for (i = j; i > 0 && array[i].ToString()[0] < array[i - 1].ToString()[0]; i--)
+                for (int i = j; i > 0 && array[i].ToString()[characterIndex] <= array[i - 1].ToString()[characterIndex]; i--)
                 {
                     Exchange(i, i - 1);
+
+                    if (array[i].ToString().Length > 1 && array[i - 1].ToString().Length > 1)
+                    {
+                        for (int k = characterIndex + 1; k < array[i].ToString().Length && k < array[i - 1].ToString().Length; k++)
+                        {
+                            if(array[i].ToString()[k] < array[i - 1].ToString()[k] && array[i].ToString()[characterIndex] == array[i - 1].ToString()[characterIndex])
+                            {
+                                Exchange(i, i - 1);
+                            }
+                        }
+                    }
                 }
             }
-
         }
 
         private void Exchange(int one, int two)
